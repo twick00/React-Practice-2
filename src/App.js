@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+// import logo from "./logo.svg";
+// import "./App.css";
 import DisplayComponent from "./components/DisplayComponent";
 import InputComponent from "./components/InputComponent";
 
@@ -11,7 +11,6 @@ class App extends Component {
     this.styles = {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
-      // gridTemplateRows: "1fr",
       height: "100vh"
     };
   }

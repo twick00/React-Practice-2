@@ -3,34 +3,18 @@ import React, { Component } from "react";
 class DisplayComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: this.props.width, //parseInt(this.props.width),
-      blocks: this.props.blocks //parseInt(this.props.blocks)
-    };
-    // console.log(this.props, this.state);
-    // this.setState({ width: this.props.width }, { blocks: this.props.blocks });
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({ width: this.props.width });
-    console.log(this.state);
   }
   buildBlocks(num) {
-    if (num === 0) {
-      return;
-    }
-    let blockNum = [];
-    for (let i = 0; i < num; i++) {
-      blockNum.push(<div style={this.styles.squares} key={i} />);
-    }
-    return blockNum;
+    return Array.from({ length: num }).map(
+      (val, i) => (val = <div style={this.styles.squares} key={i} />)
+    );
   }
 
   render() {
     this.styles = {
       container: {
         display: "grid",
-        gridTemplateColumns: `repeat(auto-fit, ${this.state.width * 5}px)`,
+        gridTemplateColumns: `repeat(auto-fill, ${this.props.width}%)`,
         gridTemplateRows: "repeat(auto-fill, 50px)",
         gridAutoFlow: "dense",
         gridGap: "25px",
@@ -38,7 +22,7 @@ class DisplayComponent extends Component {
       },
       squares: {
         backgroundColor: "coral",
-        width: `${this.state.width * 5}px`,
+        width: `100%`,
         height: "50px"
       }
     };
